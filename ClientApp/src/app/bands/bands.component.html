@@ -1,0 +1,18 @@
+<h1 id="tableLabel">Bands</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!bands?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="bands.length">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let band of bands">
+      <td>{{ band }}</td>
+    </tr>
+  </tbody>
+</table>
