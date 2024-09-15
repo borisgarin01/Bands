@@ -6,11 +6,25 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './bands.component.html'
 })
 export class BandsComponent {
-  public bands: string[] = [];
+  public bands: Band[] = [];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<string[]>(baseUrl + 'bands').subscribe(result => {
+    http.get<Band[]>(baseUrl + 'bands').subscribe(result => {
       this.bands = result;
     }, error => console.error(error));
   }
+}
+
+export class Band {
+  public name: string = "";
+  public songs: Song[] = [];
+}
+
+export class Song {
+  public title: string = "";
+  public album!: Album;
+}
+
+export class Album {
+  public title: string = "";
 }

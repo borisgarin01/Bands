@@ -4,15 +4,12 @@
 
 <p *ngIf="!bands?.length"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="bands.length">
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let band of bands">
-      <td>{{ band }}</td>
-    </tr>
-  </tbody>
-</table>
+
+<ul *ngFor="let band of bands">
+  <li>
+    <p>{{ band.name }}</p>
+    <ul *ngFor="let song of band.songs">
+      <li>{{song.title}} - {{song.album.title}}</li>
+    </ul>
+  </li>
+</ul>
